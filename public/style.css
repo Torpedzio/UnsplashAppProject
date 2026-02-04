@@ -1,0 +1,21 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+input, button {
+    padding: 8px;
+    margin: 5px;
+}
+.photo {
+    margin: 20px auto;
+    max-width: 600px;
+}
+.photo img {
+    width: 100%;
+    border-radius: 8px;
+}
+.photo p {
+    margin-top: 8px;
+    color: #555;
+}
