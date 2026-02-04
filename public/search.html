@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Wyszukaj zdjęcia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="search-page">
+
+<header>
+    <h1>📸 Unsplash Galeria</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="random.html">Wylosuj zdjęcie</a></li>
+        <li><a href="search.html" class="active">Wyszukaj</a></li>
+        <li><a href="collection.html">Moja kolekcja</a></li>
+        <li><a href="account.html">Konto</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div class="main-content">
+        <section class="search-bar">
+            <input type="text" id="query-input" placeholder="Szukaj zdjęć (np. mountain, cat)" />
+            <button id="search-btn">Szukaj</button>
+        </section>
+
+        <article id="main-photo" class="main-photo"></article>
+
+        <section class="results-grid">
+            <div class="photo-card"></div>
+            <div class="photo-card"></div>
+            <div class="photo-card"></div>
+            <div class="photo-card"></div>
+            <div class="photo-card"></div>
+            <div class="photo-card"></div>
+        </section>
+    </div>
+    <aside class="history">
+        <h3>Ostatnio wyszukane</h3>
+        <div id="history-list"></div>
+    </aside>
+</main>
+
+<footer>
+    <p>&copy; 2026 Unsplash Galeria — projekt studencki</p>
+</footer>
+
+<script type="module" src="scripts/search_script.js"></script>
+</body>
+</html>

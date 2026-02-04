@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Wylosuj zdjęcie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="random-page">
+
+<header>
+    <h1>📸 Unsplash Galeria</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="random.html" class="active">Wylosuj zdjęcie</a></li>
+        <li><a href="search.html">Wyszukaj</a></li>
+        <li><a href="collection.html">Moja kolekcja</a></li>
+        <li><a href="account.html">Konto</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div class="photo-container">
+        <button id="load-random-btn">Wylosuj nowe zdjęcie</button>
+        <article id="main-photo"></article>
+    </div>
+    <aside class="history">
+        <h3>Ostatnio wylosowane</h3>
+        <div id="history-list"></div>
+    </aside>
+</main>
+
+<footer>
+    <p>&copy; 2026 Unsplash Galeria — projekt studencki</p>
+</footer>
+
+<script type="module" src="scripts/random_script.js"></script>
+
+</body>
+</html>
