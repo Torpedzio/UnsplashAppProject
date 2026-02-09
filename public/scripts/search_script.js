@@ -1,5 +1,4 @@
-// public/scripts/search.js
-
+import { isLoggedIn, addToCollection } from './auth.js';
 let searchHistory = JSON.parse(localStorage.getItem('unsplashSearchHistory')) || [];
 
 function saveToHistory(photo) {
@@ -79,6 +78,19 @@ function showPhoto(photo) {
       <p>Autor: <a href="${photo.user.links.html}" target="_blank">@${photo.user.username}</a></p>
     </div>
   `;
+    const btnContainer = document.getElementById('collection-actions');
+    if (btnContainer) {
+        if (isLoggedIn()) {
+            btnContainer.innerHTML = `
+        <button id="add-to-collection-btn">Dodaj do kolekcji</button>
+      `;
+            document.getElementById('add-to-collection-btn').onclick = () => addToCollection(photo);
+        } else {
+            btnContainer.innerHTML = `
+        <button disabled title="Musisz być zalogowany">Dodaj do kolekcji</button>
+      `;
+        }
+    }
 
     renderHistory();
 }

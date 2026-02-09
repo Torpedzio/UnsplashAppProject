@@ -1,3 +1,5 @@
+import { isLoggedIn, addToCollection } from './auth.js';
+
 let history = JSON.parse(localStorage.getItem('unsplashHistory')) || [];
 
 if (history.length > 5) {
@@ -36,7 +38,6 @@ async function loadRandom() {
         }
 
         showPhoto(photo);
-
         renderHistory();
 
     } catch (err) {
@@ -47,13 +48,26 @@ async function loadRandom() {
 function showPhoto(photo) {
     const mainPhoto = document.getElementById('main-photo');
     if (!mainPhoto) return;
-
     mainPhoto.innerHTML = `
     <div class="photo">
       <img src="${photo.urls.regular}" alt="${photo.alt_description || 'zdjęcie'}" />
       <p>Autor: <a href="${photo.user.links.html}" target="_blank">@${photo.user.username}</a></p>
     </div>
   `;
+
+    const btnContainer = document.getElementById('collection-actions');
+    if (btnContainer) {
+        if (isLoggedIn()) {
+            btnContainer.innerHTML = `
+        <button id="add-to-collection-btn">Dodaj do kolekcji</button>
+      `;
+            document.getElementById('add-to-collection-btn').onclick = () => addToCollection(photo);
+        } else {
+            btnContainer.innerHTML = `
+        <button disabled title="Musisz być zalogowany">Dodaj do kolekcji</button>
+      `;
+        }
+    }
 }
 
 function showFromHistory(index) {
@@ -68,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loadBtn) {
         loadBtn.addEventListener('click', loadRandom);
     }
+
     const historyList = document.getElementById('history-list');
     if (historyList) {
         historyList.addEventListener('click', (e) => {
