@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+<header><h1>📸 Unsplash Galeria</h1></header>
+
+<main style="max-width: 400px; margin: 40px auto;">
+    <h2>Zarejestruj się</h2>
+    <form id="register-form">
+        <input type="text" id="username" placeholder="Login" required />
+        <input type="password" id="password" placeholder="Hasło" required />
+        <button type="submit">Zarejestruj</button>
+    </form>
+    <p id="error" style="color:red; margin-top:10px;"></p>
+    <p style="margin-top:15px;">
+        Masz już konto? <a href="login.html">Zaloguj się</a>
+    </p>
+</main>
+
+<footer><p>&copy; 2026 Unsplash Galeria</p></footer>
+
+<script type="module" src="scripts/register.js"></script>
+</body>
+</html>
