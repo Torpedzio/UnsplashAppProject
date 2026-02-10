@@ -2,58 +2,54 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8" />
-    <title>Unsplash Galeria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Unsplash Galeria — Strona główna</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>📸 Galeria Unsplash</h1>
 
-<button onclick="loadRandom()">Losowe zdjęcie</button>
+<header>
+    <h1>📸 Unsplash Galeria</h1>
+</header>
 
-<div>
-    <input type="text" id="query" placeholder="Szukaj (np. mountain, cat)" />
-    <button onclick="searchPhotos()">Szukaj</button>
-</div>
+<nav>
+    <ul>
+        <li><a href="index.html" class="active">Strona główna</a></li>
+        <li><a href="random.html">Wylosuj zdjęcie</a></li>
+        <li><a href="search.html">Wyszukaj</a></li>
+        <li><a href="collection.html">Moja kolekcja</a></li>
+        <li><a href="account.html">Konto</a></li>
+    </ul>
+</nav>
 
-<div id="result"></div>
-
-<script>
-    async function loadRandom() {
-        try {
-            const res = await fetch('/api/random');
-            const photo = await res.json();
-            displayPhoto(photo);
-        } catch (err) {
-            alert("Błąd ładowania zdjęcia.");
-        }
-    }
-
-    async function searchPhotos() {
-        const query = document.getElementById('query').value.trim();
-        if (!query) return alert("Wpisz frazę!");
-
-        try {
-            const res = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
-            const data = await res.json();
-            if (data.results && data.results.length > 0) {
-                displayPhoto(data.results[0]); // pierwsze zdjęcie
-            } else {
-                document.getElementById('result').innerHTML = "<p>Nie znaleziono zdjęć.</p>";
-            }
-        } catch (err) {
-            alert("Błąd wyszukiwania.");
-        }
-    }
-
-    function displayPhoto(photo) {
-        const html = `
-        <div class="photo">
-          <img src="${photo.urls.regular}" alt="${photo.alt_description || 'zdjęcie'}" />
-          <p>Autor: <a href="${photo.user.links.html}" target="_blank">@${photo.user.username}</a></p>
+<main>
+    <section class="home-boxes">
+        <div class="home-box">
+            <h2>Witaj w Unsplash Galerii!</h2>
+            <p>To aplikacja studencka, która pozwala:</p>
+            <ul>
+                <li>Wyświetlać losowe zdjęcia z Unsplash,</li>
+                <li>Wyszukiwać zdjęcia po słowach kluczowych,</li>
+                <li>Zapisywać ulubione zdjęcia do kolekcji,</li>
+                <li>Zarządzać swoim kontem.</li>
+            </ul>
         </div>
-      `;
-        document.getElementById('result').innerHTML = html;
-    }
-</script>
+        <div class="home-box">
+            <h2>O projekcie</h2>
+            <p><strong>Technologie i usługi:</strong></p>
+            <ul>
+                <li><a href="https://unsplash.com/developers" target="_blank">Unsplash API</a> – źródło zdjęć,</li>
+                <li><a href="https://supabase.com/" target="_blank">Supabase (PostgreSQL)</a> – baza danych,</li>
+                <li><a href="https://vercel.com/" target="_blank">Vercel</a> – hosting i deploy,</li>
+                <li><a href="https://github.com/Torpedzio/UnsplashAppProject" target="_blank">GitHub</a> – kod źródłowy.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Unsplash Galeria</p>
+</footer>
+
 </body>
 </html>

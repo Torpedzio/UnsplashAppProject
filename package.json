@@ -9,6 +9,7 @@
   },
   "private": true,
   "dependencies": {
+    "@supabase/supabase-js": "^2.95.3",
     "dotenv": "^17.2.3"
   }
 }

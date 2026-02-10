@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Moja kolekcja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="collection-page">
+
+<header><h1>📸 Unsplash Galeria</h1></header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Strona główna</a></li>
+    <li><a href="random.html">Wylosuj zdjęcie</a></li>
+    <li><a href="search.html">Wyszukaj</a></li>
+    <li><a href="collection.html" class="active">Moja kolekcja</a></li>
+    <li><a href="account.html">Konto</a></li>
+  </ul>
+</nav>
+
+<main>
+  <h2>Moja kolekcja</h2>
+  <section id="collection-container" class="collection-container">
+    <div id="collection-grid" class="collection-grid"></div>
+    <div id="main-photo" class="main-photo"></div>
+    <div id="action-buttons" class="action-buttons"></div>
+  </section>
+</main>
+
+<footer><p>&copy; 2026 Unsplash Galeria</p></footer>
+
+<script type="module" src="scripts/collection.js"></script>
+</body>
+</html>
