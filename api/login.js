@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
     const {data, error} = await supabase
         .from('users')
-        .select('id, username')
+        .select('id, username, created_at')
         .eq('username', username)
         .eq('password', password)
         .single();
@@ -29,6 +29,6 @@ export default async function handler(req, res) {
 
     res.status(200).json({
         success: true,
-        user: {id: data.id, username: data.username}
+        user: {id: data.id, username: data.username, created_at: data.created_at}
     });
 }

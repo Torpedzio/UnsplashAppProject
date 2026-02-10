@@ -1,4 +1,5 @@
 import { isLoggedIn, addToCollection } from './auth.js';
+import { saveImage } from './utils.js';
 
 let history = JSON.parse(localStorage.getItem('unsplashHistory')) || [];
 
@@ -55,18 +56,13 @@ function showPhoto(photo) {
     </div>
   `;
 
-    const btnContainer = document.getElementById('collection-actions');
-    if (btnContainer) {
-        if (isLoggedIn()) {
-            btnContainer.innerHTML = `
-        <button id="add-to-collection-btn">Dodaj do kolekcji</button>
-      `;
-            document.getElementById('add-to-collection-btn').onclick = () => addToCollection(photo);
-        } else {
-            btnContainer.innerHTML = `
-        <button disabled title="Musisz być zalogowany">Dodaj do kolekcji</button>
-      `;
-        }
+    const actionContainer = document.getElementById('action-buttons');
+    if (actionContainer) {
+        actionContainer.innerHTML = `
+    <button id="add-to-collection-btn">Dodaj do kolekcji</button>
+    <button id="save-image-btn">Zapisz zdjęcie</button>`;
+        document.getElementById('add-to-collection-btn').onclick = () => addToCollection(photo);
+        document.getElementById('save-image-btn').onclick = () => saveImage(photo);
     }
 }
 
