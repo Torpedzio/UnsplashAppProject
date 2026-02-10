@@ -1,7 +1,7 @@
 import {config} from 'dotenv';
+
 config({path: `.env.local`});
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
-//console.log('🔑 Klucz API:', UNSPLASH_ACCESS_KEY);
 export default async function handler(req, res) {
     const { query } = req.query;
     if (!query) {
