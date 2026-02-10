@@ -1,9 +1,8 @@
-//import {config} from 'dotenv';
-const {config} = require('dotenv');
+import {config} from 'dotenv';
 
 config({path: `.env.local`});
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
     const { query } = req.query;
     if (!query) {
         return res.status(400).json({ error: "Brak zapytania" });

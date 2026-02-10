@@ -1,10 +1,8 @@
-//import { config } from 'dotenv';
-const { config } = require('dotenv');
-
+import { config } from 'dotenv';
 config({ path: '.env.local' });
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
     if (!UNSPLASH_ACCESS_KEY) {
         return res.status(500).json({ error: "Brak klucza API" });
     }
